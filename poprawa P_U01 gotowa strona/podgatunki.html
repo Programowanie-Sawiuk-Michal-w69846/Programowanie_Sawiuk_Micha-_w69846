@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podgatunki Kotów</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <h1>Hodowla Kotów</h1>
+            <nav>
+                <a href="index.html">Strona główna</a>
+                <a href="podgatunki.html">Podgatunki</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Maine Coon</h2>
+            <p>Maine Coon to jedna z największych ras domowych kotów, znana ze swojej długiej, gęstej sierści i dużych, tęczowych oczu. Są to koty bardzo towarzyskie, inteligentne i z natury są dobrymi mysliwymi.</p>
+            <img src="Maine Coon.jpg" alt="Kot 3">
+        </section>
+        <section>
+            <h2>Bengalski</h2>
+            <p>Koty bengalskie są unikalne dzięki swojemu dzikowatemu wyglądowi, który zawdzięczają swojemu dziedzictwu po dzikim kocie lamparcie. Są to koty aktywne i zabawne, które uwielbiają zabawy i interakcje z ludźmi.</p>
+            <img src="Bengalski.jpg" alt="Kot 3">
+        </section>
+        <section>
+            <h2>Sphynx</h2>
+            <p>Sphynx to rasa kota bezsierściowego, która jest znana ze swojego przyjaznego i energicznego temperamentu. Pomimo braku sierści, koty Sphynx wymagają regularnej pielęgnacji, aby utrzymać skórę w dobrym stanie.</p>
+            <img src="Sphynx.jpg" alt="Kot 3">
+        </section>
+        <h2>Tabela danych o zwierzętach</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Imię</th>
+                    <th>Podgatunek</th>
+                    <th>Wiek</th>
+                    <th>Kolor sierści</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Whiskers</td>
+                    <td>Maine Coon</td>
+                    <td>3</td>
+                    <td>Szary</td>
+                </tr>
+                <tr>
+                    <td>Bella</td>
+                    <td>Bengalski</td>
+                    <td>2</td>
+                    <td>Złoty</td>
+                </tr>
+                <tr>
+                    <td>Sphinx</td>
+                    <td>Sphynx</td>
+                    <td>4</td>
+                    <td>Różowy</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Dodaj nowego kota</h2>
+        <form id="add-cat-form">
+            <label for="name">Imię:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <label for="subspecies">Podgatunek:</label>
+            <input type="text" id="subspecies" name="subspecies" required>
+            <br>
+            <label for="age">Wiek:</label>
+            <input type="number" id="age" name="age" required>
+            <br>
+            <label for="color">Kolor sierści:</label>
+            <input type="text" id="color" name="color" required>
+            <br>
+            <button type="submit">Dodaj</button>
+        </form>
+        <p id="form-feedback"></p>
+    </main>
+
+    <footer>
+        <p>Autor: Michał Sawiuk</p>
+        <p>Data rozpoczęcia pracy: Czerwiec 2024</p>
+    </footer>
+
+    <script>
+        document.getElementById('add-cat-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var name = document.getElementById('name').value;
+            var subspecies = document.getElementById('subspecies').value;
+            var age = document.getElementById('age').value;
+            var color = document.getElementById('color').value;
+
+            if (name && subspecies && age && color) {
+                var table = document.querySelector('table tbody');
+                var newRow = table.insertRow();
+                
+                var nameCell = newRow.insertCell(0);
+                var subspeciesCell = newRow.insertCell(1);
+                var ageCell = newRow.insertCell(2);
+                var colorCell = newRow.insertCell(3);
+                
+                nameCell.textContent = name;
+                subspeciesCell.textContent = subspecies;
+                ageCell.textContent = age;
+                colorCell.textContent = color;
+
+                document.getElementById('form-feedback').textContent = "Kot został dodany pomyślnie!";
+                document.getElementById('add-cat-form').reset();
+            } else {
+                document.getElementById('form-feedback').textContent = "Proszę wypełnić wszystkie pola.";
+            }
+        });
+        
+    </script>
+</body>
+</html>
